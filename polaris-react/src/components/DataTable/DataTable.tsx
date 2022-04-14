@@ -11,7 +11,6 @@ import {Cell, CellProps, Navigation} from './components';
 import {measureColumn, getPrevAndCurrentColumns} from './utilities';
 import type {DataTableState, SortDirection, VerticalAlign} from './types';
 import styles from './DataTable.scss';
-import {Sticky} from '@shopify/polaris';
 
 export type {SortDirection};
 
