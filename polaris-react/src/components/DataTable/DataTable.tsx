@@ -11,6 +11,7 @@ import {Cell, CellProps, Navigation} from './components';
 import {measureColumn, getPrevAndCurrentColumns} from './utilities';
 import type {DataTableState, SortDirection, VerticalAlign} from './types';
 import styles from './DataTable.scss';
+import {Sticky} from '@shopify/polaris';
 
 export type {SortDirection};
 
@@ -73,6 +74,8 @@ export interface DataTableProps {
   increasedTableDensity?: boolean;
   /** Add zebra striping to data rows */
   hasZebraStripingOnData?: boolean;
+  /** Add a fixed first column on horizonal scroll. */
+  hasFixedFirstColumn?: boolean;
 }
 
 type CombinedProps = DataTableProps & {
@@ -141,6 +144,7 @@ class DataTableInner extends PureComponent<CombinedProps, DataTableState> {
       hideScrollIndicator = false,
       increasedTableDensity = false,
       hasZebraStripingOnData = false,
+      hasFixedFirstColumn = false,
     } = this.props;
     const {
       condensed,
@@ -171,6 +175,17 @@ class DataTableInner extends PureComponent<CombinedProps, DataTableState> {
     const totalsMarkup = totals ? (
       <tr>{totals.map(this.renderTotals)}</tr>
     ) : null;
+
+    const firstColumn = rows.map((row) => row.slice(0, 1));
+    const firstHeading = headings.slice(0, 1);
+    const fixedFirstColumn = condensed &&
+      !isScrolledFarthestLeft &&
+      hasFixedFirstColumn && (
+        <table className={styles.FixedFirstColumn}>
+          {firstHeading.map(this.renderHeadings)}
+          {firstColumn.map(this.defaultRenderRow)}
+        </table>
+      );
 
     const bodyMarkup = rows.map(this.defaultRenderRow);
 
@@ -204,6 +219,7 @@ class DataTableInner extends PureComponent<CombinedProps, DataTableState> {
               event="scroll"
               handler={this.scrollListener}
             />
+            {fixedFirstColumn}
             <table className={styles.Table} ref={this.table}>
               <thead>
                 {headingMarkup}
