@@ -23,6 +23,7 @@ export interface CellProps {
   verticalAlign?: VerticalAlign;
   onSort?(): void;
   colSpan?: number;
+  hovered?: boolean;
 }
 
 export function Cell({
@@ -40,6 +41,7 @@ export function Cell({
   defaultSortDirection = 'ascending',
   onSort,
   colSpan,
+  hovered = false,
 }: CellProps) {
   const i18n = useI18n();
   const numeric = contentType === 'numeric';
@@ -54,6 +56,7 @@ export function Cell({
     numeric && styles['Cell-numeric'],
     sortable && styles['Cell-sortable'],
     sorted && styles['Cell-sorted'],
+    hovered && styles['Cell-hovered'],
   );
 
   const headerClassName = classNames(
