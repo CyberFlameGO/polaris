@@ -295,6 +295,7 @@ class DataTableInner extends PureComponent<CombinedProps, DataTableState> {
       ...this.calculateColumnVisibilityData(prevState.condensed),
     }));
   };
+
   private onHover = (row: number) => {
     this.setState({rowHovered: row});
   };
