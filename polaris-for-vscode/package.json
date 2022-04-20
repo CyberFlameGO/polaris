@@ -30,20 +30,18 @@
   ],
   "main": "./client/dist/extension.js",
   "scripts": {
-    "vscode:prepublish": "node ./scripts/prepublish.js",
-    "build": "tsc -b",
-    "watch": "tsc -b -w",
-    "postinstall": "cd client && npm install && cd ../server && npm install && cd .."
+    "vscode:prepublish": "yarn build",
+    "build": "run-s build:*",
+    "build:data": "node ./scripts/prepublish.js",
+    "build:tsc": "tsc -b",
+    "dev": "tsc -b -w",
+    "postinstall": "cd client && yarn install && cd ../server && yarn install && cd .."
   },
   "devDependencies": {
     "@types/glob": "^7.2.0",
     "@types/node": "14.x",
     "@types/vscode": "^1.64.0",
-    "@typescript-eslint/eslint-plugin": "^5.9.1",
-    "@typescript-eslint/parser": "^5.9.1",
-    "eslint": "^8.6.0",
     "glob": "^7.2.0",
-    "typescript": "^4.5.4",
     "vsce": "^2.7.0"
   }
 }
