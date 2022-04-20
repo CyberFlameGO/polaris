@@ -1,6 +1,13 @@
 *.log
 *.tsbuildinfo
-node_modules
+*.vsix
 .DS_Store
+.eslintcache
 .loom
+.next
 .shadowenv.d
+build
+build-internal
+data
+dist
+node_modules
