@@ -28,7 +28,7 @@
     "onLanguage:css",
     "onLanguage:scss"
   ],
-  "main": "./client/out/extension.js",
+  "main": "./client/dist/extension.js",
   "scripts": {
     "vscode:prepublish": "yarn run build",
     "generateCustomPropertyNames": "node ./scripts/prepublish.js",
