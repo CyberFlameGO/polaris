@@ -9,10 +9,10 @@ function StrictModeDecorator(Story, context) {
   const {strictMode, grid} = context.globals;
   const Wrapper = strictMode === 'true' ? React.StrictMode : React.Fragment;
   const gridOverlay =
-    grid === 'true' || grid === 'inset' || grid === 'inFrame' ? (
+    grid !== 'false' ? (
       <GridOverlay inset={grid === 'inset'} inFrame={grid === 'inFrame'} />
     ) : null;
-  console.log({grid});
+
   return (
     <Wrapper>
       {gridOverlay}
