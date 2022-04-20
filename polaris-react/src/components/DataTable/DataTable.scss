@@ -266,7 +266,7 @@ $breakpoint: 768px;
 
   background: white;
 
-  z-index: var(--p-z-3);
+  z-index: 1;
   border-collapse: collapse;
   &.Visible {
     border-right: var(--p-border-divider);
