@@ -13,6 +13,6 @@
     "declarationMap": true
   },
   "include": ["src"],
-  "exclude": ["node_modules", ".vscode-test", "dist"],
+  "exclude": ["node_modules", "dist"],
   "references": [{"path": "./client"}, {"path": "./server"}]
 }
