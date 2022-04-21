@@ -3,8 +3,8 @@
 build
 build-internal
 node_modules
-data
 dist
+tmp-tokens
 
 /stylelint-polaris/tests
 /documentation/guides/legacy-polaris-v8-public-api.scss

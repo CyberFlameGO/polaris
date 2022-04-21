@@ -11,7 +11,7 @@ import {
 } from 'vscode-languageserver/node';
 import {TextDocument} from 'vscode-languageserver-textdocument';
 
-import {groupedTokens} from './data/allTokens';
+import {groupedTokens} from './tmp-tokens/allTokens';
 
 type GroupedTokens = typeof groupedTokens;
 

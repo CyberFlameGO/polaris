@@ -8,6 +8,6 @@
 .shadowenv.d
 build
 build-internal
-data
 dist
 node_modules
+tmp-tokens
