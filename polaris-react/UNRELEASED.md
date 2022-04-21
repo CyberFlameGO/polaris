@@ -20,6 +20,8 @@ Use [the changelog guidelines](/documentation/Versioning%20and%20changelog.md) t
 
 ### Dependency upgrades
 
+- Uses more permissive dependency for `@types/react` and `@types/react-dom` ([#5575](https://github.com/Shopify/polaris/pull/5575))
+
 ### Code quality
 
 ### Deprecations
